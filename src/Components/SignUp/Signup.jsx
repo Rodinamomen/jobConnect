@@ -8,11 +8,20 @@ export const Signup = (props) => {
     const submitUser = async() =>
     {
        const userData = {
-        email,
-        password,
-        firstname,
-        secondname
+       email: email,
+       password: password,
+        firstname: firstname,
+        secondname:secondname
        }
+
+       const result = await fetch("url", 
+    {
+        method: "POST",
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(userData)
+    })
     }
     
     return(
