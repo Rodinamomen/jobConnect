@@ -22,6 +22,8 @@ export const Signup = (props) => {
         },
         body: JSON.stringify(userData)
     })
+    const resultInbJson= await  result.json
+    console.log(resultInbJson)
     }
     
     return(
