@@ -24,7 +24,7 @@ import './PostJob.css'
               headers: {
                   'Content-Type':'application/json'
               },
-              body: JSON.stringify(userData)
+              body: JSON.stringify(jobData)
           })
           const resultInbJson =  await result.json
           console.log(resultInbJson)
