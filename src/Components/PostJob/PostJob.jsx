@@ -47,8 +47,12 @@ import './PostJob.css'
             </div>
             <div className='job-type-div'>
                 <label className='job-type-label'>Job Type</label>
-                <input  className='job-type-input'value={jobType} type='text' onChange={(e)=> setJobType(e.target.value)} ></input>
-                
+                <select id="job-type-input" value={jobType} onChange={(e)=> setJobType(e.target.value)}>
+                <option value="">Select</option>
+                <option value="contract">Contract</option>
+                <option value="fulltime">Full-time</option>
+                <option value="parttime">Part-time</option>
+            </select>
             </div>
             </div>
             <div className='job-salery-date-container'>

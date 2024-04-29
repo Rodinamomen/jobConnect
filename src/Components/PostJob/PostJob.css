@@ -63,16 +63,22 @@ justify-content: center;
     margin-top: 50px;
     column-count: 2;
 }
-.job-title-div{
- 
-}
-.job-title-input,.job-type-input,.job-salery-input{
+.job-title-input,.job-salery-input{
     background-color: white;
     font-size: 14px;
     padding: 12px 28px;
     border-radius: 12px;
     border: 2px solid #EAEBEC;
     border-color: #EAEBEC;
+    margin-left: 6ch;
+    margin-right: 7ch;
+}
+.job-type-input{
+    background-color: white;
+    font-size: 14px;
+    padding: 12px 28px;
+    border-radius: 12px;
+    border: 2px solid #EAEBEC;
     margin-left: 6ch;
     margin-right: 7ch;
 }
