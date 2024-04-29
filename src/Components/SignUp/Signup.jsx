@@ -7,7 +7,7 @@ export const Signup = (props) => {
     const [secondname,setSecondName] = useState('')
     const submitUser = async() =>
     {
-       const userData = {
+      const userData = {
        email: email,
        password: password,
         firstname: firstname,
@@ -34,7 +34,7 @@ export const Signup = (props) => {
             <br/>
             <span className="register-subheader">Let’s Sign up first for enter into JobConnect Website.</span>
         </div>
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form className="register-form" /*onSubmit={handleSubmit}*/>
             <label className='first-name-label'htmlFor="name">First Name</label>
             <input value={firstname} type="text" placeholder="firstName" id="firstName" name="Firstname" onChange={(e) => setFirstName(e.target.value)}></input>
             <label className='second-name-label'htmlFor="Secondname">Second Name</label>

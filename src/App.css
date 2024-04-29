@@ -1,20 +1,24 @@
 .App {
-
+    height: 100vh;
+    width: 100vw;
+    margin-top: 0%;
+    margin-left: 0%;
 }
 label{
-
         color: black;
-         text-align: left;
+        text-align: left;
         margin-left: 6ch;
         margin-bottom: 1ch;
         font-family: 'Trebuchet MS', sans-serif ;
-        font-size: 20px;
+        font-size: 25px;
+        font-style: bold;
 
 }
 input{
     background-color: white;
     font-size: 14px;
     padding: 12px 28px;
+   
     border-radius: 12px;
     border: 2px solid #EAEBEC;
     margin-left: 6ch;
@@ -22,6 +26,6 @@ input{
     
 }
 input:focus{
-    border-color: #6236F5; 
+    border-color: #338573; 
     outline: none; 
 }
