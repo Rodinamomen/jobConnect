@@ -63,7 +63,10 @@ justify-content: center;
     margin-top: 50px;
     column-count: 2;
 }
-.job-title-input,.job-type-input,.job-salery-input,.job-date-input{
+.job-title-div{
+ 
+}
+.job-title-input,.job-type-input,.job-salery-input{
     background-color: white;
     font-size: 14px;
     padding: 12px 28px;
@@ -73,7 +76,7 @@ justify-content: center;
     margin-left: 6ch;
     margin-right: 7ch;
 }
-.job-title-label,.job-description-label,.job-type-label,.job-salery-label,.job-date-label{
+.job-title-label,.job-description-label,.job-type-label,.job-salery-label{
     color: black;
     text-align: left;
     font-size: 20px;

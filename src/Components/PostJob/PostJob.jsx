@@ -9,11 +9,13 @@ import './PostJob.css'
     const [error, setError] = useState('');
     const handleSubmit= async ()=> {
         
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString()
             const jobData = {
              jobTitle: jobTitle,
              jobType: jobType,
               salery: jobSalery,
-              postDate:jobDate,
+              postDate:formattedDate,
               jobDescription:jobDescription,
               isActive:0
              }
@@ -54,16 +56,12 @@ import './PostJob.css'
                 <label className='job-salery-label'>Salery</label>
                 <input className='job-salery-input' value={jobSalery} type='text' onChange={(e)=> setjobSalery(e.target.value)} ></input>
             </div>
-            <div className='job-date-div'>
-                <label className='job-date-label'>Date</label>
-                <input className='job-date-input' value={jobDate} type='date' onChange={(e)=> setjobDate(e.target.value)}></input>
-            </div>
             </div>
             <div className='job-description-div'>
             <label className='job-description-label'>Job description</label>
             <textarea className='job-description-input' value={jobDescription} type='text' onChange={(e)=> setjobDescription(e.target.value)}></textarea>
             </div>
-            <button className='post-job-button' onClick={handleSubmit}>Post a job</button> 
+            <button className='post-job-button'>Post a job</button> 
         </div>
      </div>
     </div>
