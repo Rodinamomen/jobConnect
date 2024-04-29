@@ -63,7 +63,7 @@ import './PostJob.css'
             <label className='job-description-label'>Job description</label>
             <textarea className='job-description-input' value={jobDescription} type='text' onChange={(e)=> setjobDescription(e.target.value)}></textarea>
             </div>
-            <button className='post-job-button'>Post a job</button> 
+            <button className='post-job-button' onClick={handleSubmit}>Post a job</button> 
         </div>
      </div>
     </div>

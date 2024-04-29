@@ -63,9 +63,6 @@ justify-content: center;
     margin-top: 50px;
     column-count: 2;
 }
-.job-title-div{
- 
-}
 .job-title-input,.job-type-input,.job-salery-input,.job-date-input{
     background-color: white;
     font-size: 14px;
