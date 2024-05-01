@@ -7,26 +7,14 @@ function ReviewProposels(props) {
   const [allJobs, setAllJobs] = useState(null);
 
   useEffect(() => {
-      fetchData();
+    const response = fetch('url', {
+      method: 'GET',
+      headers: {
+          'Authorization': 'Bearer yourToken',
+      }
+  }).then(response => response.json()).then(json => setAllJobs(json)).catch(error => console.error(error));
   }, []);
 
-  const fetchData = async () => {
-      try {
-          const response = await fetch('url', {
-              method: 'GET',
-              headers: {
-                  'Authorization': 'Bearer yourToken',
-              }
-          });
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          const jsonData = await response.json();
-          setAllJobs(jsonData);
-      } catch (error) {
-          console.error('Error fetching data:', error);
-      }
-  };
   return (
     <div>
      <div className='job-list-container' >
