@@ -23,7 +23,6 @@ function ReviewProposels(props) {
           console.error('Error fetching data:', error);
       }
   };
-     
   return (
     <div>
      <div className='job-list-container' >
