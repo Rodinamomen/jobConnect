@@ -4,19 +4,23 @@ import { JobsListData} from './JobsListData'
 import { Link } from 'react-router-dom'
 
 function ReviewProposels(props) {
-      const [allJobs, setAllJobs]= useState(null)
-      useEffect(()=>{
-          fetchData()
-      },[])
-      const fetchData =async()=>{
-        try {
-          const response = await fetch('url',{
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer yourToken',
-                'Content-Type': 'application/json'
-            }
-        });
+  const [allJobs, setAllJobs] = useState(null);
+
+  useEffect(() => {
+      fetchData();
+  }, []);
+
+  const fetchData = async () => {
+      try {
+          const response = await fetch('url', {
+              method: 'GET',
+              headers: {
+                  'Authorization': 'Bearer yourToken',
+              }
+          });
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
           const jsonData = await response.json();
           setAllJobs(jsonData);
       } catch (error) {
