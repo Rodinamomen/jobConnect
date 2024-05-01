@@ -7,7 +7,7 @@ function ReviewProposels(props) {
       const [allJobs, setAllJobs]= useState(null)
       useEffect(()=>{
           fetchData()
-      })
+      },[])
       const fetchData =async()=>{
         try {
           const response = await fetch('url',{
