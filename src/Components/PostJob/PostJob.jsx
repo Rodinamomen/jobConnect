@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './PostJob.css'
+import ReviewProposels from '../ReviewProposels/ReviewProposels';
  function PostJob() {
     const [jobTitle,setJobTitle] = useState('');
     const [jobType,setJobType] = useState("");
@@ -7,10 +8,10 @@ import './PostJob.css'
     const [jobDate,setjobDate] = useState("");
     const [jobDescription,setjobDescription] = useState("");
     const [error, setError] = useState('');
+    const [jobData, setJobData] = useState(null);
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString()
     const handleSubmit= async ()=> {
-        
-        const currentDate = new Date();
-        const formattedDate = currentDate.toLocaleDateString()
             const jobData = {
              jobTitle: jobTitle,
              jobType: jobType,
@@ -18,8 +19,7 @@ import './PostJob.css'
               postDate:formattedDate,
               jobDescription:jobDescription,
               isActive:0
-             }
-      
+            }
              const result = await fetch("url", 
           {
               method: "POST",
@@ -30,6 +30,7 @@ import './PostJob.css'
           })
           const resultInbJson =  await result.json
           console.log(resultInbJson)
+          setJobData(jobData)
           
     }
   return (
@@ -43,9 +44,8 @@ import './PostJob.css'
             <div className='job-title-div'>
                 <label className='job-title-label'>Job Title</label>
                 <input required className='job-title-input' value={jobTitle} type='text' onChange={(e)=> setJobTitle(e.target.value)}></input>
-                
             </div>
-            <div className='job-type-div'>
+          <div className='job-type-div'>
                 <label className='job-type-label'>Job Type</label>
                 <select id="job-type-input" value={jobType} onChange={(e)=> setJobType(e.target.value)}>
                 <option value="">Select</option>
@@ -65,10 +65,21 @@ import './PostJob.css'
             <label className='job-description-label'>Job description</label>
             <textarea className='job-description-input' value={jobDescription} type='text' onChange={(e)=> setjobDescription(e.target.value)}></textarea>
             </div>
-            <button className='post-job-button'>Post a job</button> 
+            <button className='post-job-button' onClick={handleSubmit}>Post a job</button> 
+        
         </div>
      </div>
+     {jobData && (
+                <ReviewProposels  
+                    jobTitle={jobTitle}
+                    jobType={jobType}
+                    salery={jobSalery}
+                    postDate={formattedDate}
+                    jobDescription={jobDescription}
+                />
+            )}
     </div>
+    
   )
 }
 export default PostJob

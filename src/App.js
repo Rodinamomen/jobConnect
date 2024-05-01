@@ -5,6 +5,7 @@ import {Login} from './Components/Login/Login';
 import { Signup } from './Components/SignUp/Signup';
 import SideBar from './Components/SideBar/SideBar';
 import { Outlet } from 'react-router-dom';
+
 function App() {
   const [currentForm,setCurrentForm] = useState('login');
   const toggleForm =(formName)=>{
@@ -16,7 +17,6 @@ function App() {
      // currentForm == 'login' ? <Login onFormSwitch={toggleForm}/> : <Signup onFormSwitch={toggleForm}/>
      <>
      <Outlet/>
-
      </>
     }
     </div>
