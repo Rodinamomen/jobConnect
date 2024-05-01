@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './PostJob.css'
-import ReviewProposels from '../ReviewProposels/ReviewProposels';
  function PostJob() {
     const [jobTitle,setJobTitle] = useState('');
     const [jobType,setJobType] = useState("");
@@ -69,15 +68,6 @@ import ReviewProposels from '../ReviewProposels/ReviewProposels';
         
         </div>
      </div>
-     {jobData && (
-                <ReviewProposels  
-                    jobTitle={jobTitle}
-                    jobType={jobType}
-                    salery={jobSalery}
-                    postDate={formattedDate}
-                    jobDescription={jobDescription}
-                />
-            )}
     </div>
     
   )

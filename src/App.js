@@ -3,7 +3,6 @@ import './App.css';
 import React, {useState} from 'react';
 import {Login} from './Components/Login/Login';
 import { Signup } from './Components/SignUp/Signup';
-import SideBar from './Components/SideBar/SideBar';
 import { Outlet } from 'react-router-dom';
 
 function App() {

@@ -2,10 +2,10 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import PostJob from "./Components/PostJob/PostJob";
-import ReviewProposels from "./Components/ReviewProposels/ReviewProposels";
-
+import JobsList from "./Components/JobsList/JobsList";
 import App from "./App";
 import Notfound from "./Components/Error/Notfound";
+import ReviewProposels from "./Components/ReviewProposels/ReviewProposels";
 export const router = createBrowserRouter([
     
     {
@@ -21,7 +21,11 @@ export const router = createBrowserRouter([
         element: <PostJob />,
       },
       {
-        path: "/reviewProposels",
+        path: "/jobsList",
+        element: <JobsList />,
+      },
+      {
+        path: "/reviewProposels/:jobId",
         element: <ReviewProposels />,
       },
      ],
