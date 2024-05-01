@@ -10,7 +10,13 @@ function ReviewProposels(props) {
       })
       const fetchData =async()=>{
         try {
-          const response = await fetch('url');
+          const response = await fetch('url',{
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer yourToken',
+                'Content-Type': 'application/json'
+            }
+        });
           const jsonData = await response.json();
           setAllJobs(jsonData);
       } catch (error) {
@@ -35,7 +41,7 @@ function ReviewProposels(props) {
            <Link to={`/reviewProposels/${val.jobId}`}>
                 <button className='explore-button'>Explore</button>
             </Link>
-            
+
       </div>
         )
       })} 
