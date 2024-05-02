@@ -1,0 +1,47 @@
+.job-details-header{
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    justify-content: center; 
+    font-size: 30px;
+    color: #000000;
+    font-family: "Poppins";
+    background-color:  #F4F5F7;
+    height: 80px;
+    margin-bottom: 30px;
+}
+.job-type-div {
+    display: flex;
+    align-items: center;
+}
+.job-title{
+    font-size: 35px;
+    padding-left: 15px;
+}
+.job-date{
+    padding-left: 15px;
+}
+.job-type-div p {
+    margin-right: 5px; /* Adjust spacing between paragraphs */
+    display: inline; /* Display paragraphs inline */
+}
+.job-type-text,.job-description-text{
+    font-size: 24px;
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    padding-left: 15px;
+    font-style: bold;
+    margin-top: 0;
+}
+.job-type{
+    font-size: 18px;
+    font-family: "Poppins";
+    font-style: bold;
+    margin-top: 0;
+}
+.job-description-details{
+    font-size: 18px;
+    font-family: "Poppins";
+    font-style: bold;
+    margin-top: 0;
+}
