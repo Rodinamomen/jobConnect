@@ -2,6 +2,7 @@ import React from 'react'
 import  { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { JobsListData } from '../JobsList/JobsListData';
+import { proposelsData } from './proposelsData';
 import './ReviewProposels.css'
 function ReviewProposels() {
  const [Job, setJob] = useState(null);
