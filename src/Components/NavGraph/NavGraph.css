@@ -1,0 +1,24 @@
+.nav-graph-employer{
+    display:flex ;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 20px;
+}
+.nav-graph-employer ul{
+    display: flex;
+    margin-left: auto;
+
+}
+.nav-graph-employer li{
+   list-style: none;
+  
+}
+.nav-graph-employer ul li a{
+    display: block;
+    text-decoration: none;
+    color: #338573;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    font-size: 20px;
+}

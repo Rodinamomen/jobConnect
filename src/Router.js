@@ -6,6 +6,7 @@ import JobsList from "./Components/JobsList/JobsList";
 import App from "./App";
 import Notfound from "./Components/Error/Notfound";
 import ReviewProposels from "./Components/ReviewProposels/ReviewProposels";
+import ViewProposel from "./Components/ViewProposel/ViewProposel";
 export const router = createBrowserRouter([
     
     {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/reviewProposels/:jobId",
         element: <ReviewProposels />,
+      },
+      {
+        path: "/viewProposel",
+        element: <ViewProposel/>,
       },
      ],
      

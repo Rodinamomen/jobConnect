@@ -1,0 +1,12 @@
+.proposel-container{
+    background-color: white;
+    height: 100ch;
+    width: 150ch;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+   border: 1px solid #338573;
+   border-radius: 20px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

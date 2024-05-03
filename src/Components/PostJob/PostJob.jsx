@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './PostJob.css'
+import { Link } from 'react-router-dom';
  function PostJob() {
     const [jobTitle,setJobTitle] = useState('');
     const [jobType,setJobType] = useState("");
@@ -34,8 +35,6 @@ import './PostJob.css'
     }
   return (
     <div className='postJobContaioner' >
-      <div className='logo-container'><text className='job-connect-logo'>JobConnect</text>
-      </div>  
      <div className='create-job-header'>Create a job</div>
      <div className="job-details-container">
         <div className='job-details-container-card'>
@@ -65,7 +64,6 @@ import './PostJob.css'
             <textarea className='job-description-input' value={jobDescription} type='text' onChange={(e)=> setjobDescription(e.target.value)}></textarea>
             </div>
             <button className='post-job-button' onClick={handleSubmit}>Post a job</button> 
-        
         </div>
      </div>
     </div>
