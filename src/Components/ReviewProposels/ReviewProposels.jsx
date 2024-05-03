@@ -84,7 +84,7 @@ function ReviewProposels() {
       {proposels && proposels.map((val,key)=>{
         return(
             <div className='user-card'  key={key} >
-            <p className='user-name'>{val.ProposalId}</p>
+            <p className='user-name'>{val.JobSeeker.userName}</p>
             <p className='user-email'>Rodinamobark3@gmail.com</p>
             <div className='buttons-container'>
             <button className='view-proposel-button'>View proposel</button>
