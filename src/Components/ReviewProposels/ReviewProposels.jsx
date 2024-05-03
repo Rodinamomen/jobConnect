@@ -85,7 +85,7 @@ function ReviewProposels() {
         return(
             <div className='user-card'  key={key} >
             <p className='user-name'>{val.JobSeeker.userName}</p>
-            <p className='user-email'>Rodinamobark3@gmail.com</p>
+            <p className='user-email'>{val.JobSeeker.email}</p>
             <div className='buttons-container'>
             <button className='view-proposel-button'>View proposel</button>
             </div>
