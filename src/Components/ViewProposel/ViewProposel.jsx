@@ -12,16 +12,6 @@ function ViewProposel() {
           fetchData();
         }, [proposalId]);
         
-          /*  <div className='proposel-container'>
-        <p>{proposal.Jobseeker.userName}</p>
-        <p>{proposal.Jobseeker.email}</p>
-        
-        <p>{proposal.SubmissionDate}</p>
-        <p>{proposal.CoverLetter} </p>
-        <p>{proposal.AttachmentPath}</p>
-        <button onClick={handleAccept}>Accept</button>
-        <button onClick={handleReject}>reject</button>
-      </div>*/
       const downloadFile = () => {
         fetch(attachmentPath)
             .then((response) => response.blob())
@@ -36,10 +26,10 @@ function ViewProposel() {
             })
             .catch((error) => console.error('Error downloading file:', error));
     };
-   /* const handleDoownloadClick=()=>{
+    const handleDoownloadClick=()=>{
         setAttachmentPath(proposal.JobSeeker.attachmentPath)
         downloadFile
-    };*/
+    };
      const fetchData = async () => {
           console.log('Fetching data...');
         
@@ -101,29 +91,19 @@ function ViewProposel() {
       <div className='job-details-header'>Proposel</div> 
     </div>
       <div className='proposel-container'>
-        <p className='proposal-username'>Rodina momen</p>
+        <p className='proposal-username'>{proposal.Jobseeker.userName}</p>
         <div className='contact-div'>
             <p className='contact-text'>Contact:</p>
-            <p className='proposal-contact'>Rodinamobark3@gmail.com</p>
+            <p className='proposal-contact'>{proposal.Jobseeker.email}</p>
         </div>
         <div className='submitted-date-div'> 
         <p className='proposal-submitted-date-text' >Submitted Date:</p>
-        <p className='proposal-submitted-date'>20/4/2024</p>
+        <p className='proposal-submitted-date'>{proposal.SubmissionDate}</p>
         </div>
         <div className='cover-letter-div'>
             <p className='proposal-cover-letter-text'>Cover letter:</p>
-            <p className='proposal-cover-letter'>A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter.A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter. A cover letter, also known as an application letter, is a three- to four-paragraph memo to employers explaining your interest in the job and company and your fitness for the role. It's typically submitted along with your resume in a job application. This letter should highlight your skills, experience and achievements concerning the position you seek. Unlike your resume, cover letters allow you to go into more detail about your professional career and explain why you're a good fit for the role and company.
-A well-written cover letter has the potential to impress employers and set you apart from other applicants. To avoid a generic cover letter, you should conduct in-depth research on the company and role for which you're applying to in-depth before writing your cover letter.  </p>
-         <button className='download-resume-button'>Download resume</button>  
+            <p className='proposal-cover-letter'>{proposal.CoverLetter}</p>
+         <button className='download-resume-button' onClick={handleDoownloadClick}>Download resume</button>  
         </div>
   
         <button className='accept-proposal-button' onClick={handleAccept}>Accept</button>
