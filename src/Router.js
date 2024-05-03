@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
         element: <ReviewProposels />,
       },
       {
-        path: "/viewProposel",
+        path: "/viewProposel:proposalId",
         element: <ViewProposel/>,
       },
      ],

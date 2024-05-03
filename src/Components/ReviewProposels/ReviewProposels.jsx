@@ -1,6 +1,6 @@
 import React from 'react'
 import  { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { JobsListData } from '../JobsList/JobsListData';
 import { proposelsData } from './proposelsData';
 import './ReviewProposels.css'
@@ -9,8 +9,8 @@ function ReviewProposels() {
  const [proposels, setProposels] = useState(null);
  const { jobId } = useParams();
     useEffect(() => {
-       const job = JobsListData.find(item => item.jobId === jobId);
-        setJob(JobsListData.find(item => item.jobId === jobId))
+    //   const job = JobsListData.find(item => item.jobId === jobId);
+    //    setJob(JobsListData.find(item => item.jobId === jobId))
       fetchData();
       getProposels()
     }, [jobId]);
@@ -88,6 +88,7 @@ function ReviewProposels() {
             <p className='user-name'>{val.JobSeeker.userName}</p>
             <p className='user-email'>{val.JobSeeker.email}</p>
             <div className='buttons-container'>
+                <Link to="/viewProposel:${val.ProposalId}"><button className='view-proposel-button'>View proposel</button></Link>
             <button className='view-proposel-button'>View proposel</button>
             </div>
             </div>
