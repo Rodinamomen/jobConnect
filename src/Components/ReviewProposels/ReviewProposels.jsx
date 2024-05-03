@@ -16,13 +16,13 @@ function ReviewProposels() {
 
     const fetchData = async () => {
       console.log('Fetching data...');
-    
+        const baseurl=`http://localhost:5109/employer/jobs/${jobId}`
+        const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0Nzk4ODk5LCJpc3MiOiJqb2JDb25uZWN0In0.NjcP27N8tEWW6KzE2t7FMlPWCjM6LWTwTVPEBSd_OK8`
         try {
-            const baseurl='https://jobconnectapi-1.onrender.com/jobs/${jobId}'
             const response = await fetch( baseurl, {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI5YzVhN2RmLWE5M2MtNGVmNi1iMzUwLTEzYTliYzY3M2U3MyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkpvYlNlZWtlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IkpvYlNlZWtlcjEiLCJleHAiOjE3MTQ2NDY4OTIsImlzcyI6ImpvYkNvbm5lY3QifQ.OG_EHO82A23dcZvXRNofllgpdlLSVHCHX5dY_dA5JY8'
+                    'Authorization': `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -37,11 +37,12 @@ function ReviewProposels() {
     const getProposels =async ()=>{
 
         try {
-            const baseurl='https://jobconnectapi-1.onrender.com/jobs/${jobId}/proposels'
+            const baseurl=`http://localhost:5109/jobs/${jobId}/proposals`
+            const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0Nzk4ODk5LCJpc3MiOiJqb2JDb25uZWN0In0.NjcP27N8tEWW6KzE2t7FMlPWCjM6LWTwTVPEBSd_OK8`
             const response = await fetch( baseurl, {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI5YzVhN2RmLWE5M2MtNGVmNi1iMzUwLTEzYTliYzY3M2U3MyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkpvYlNlZWtlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IkpvYlNlZWtlcjEiLCJleHAiOjE3MTQ2NDY4OTIsImlzcyI6ImpvYkNvbm5lY3QifQ.OG_EHO82A23dcZvXRNofllgpdlLSVHCHX5dY_dA5JY8'
+                    'Authorization': `Bearer ${token}`
                 }
             });
             if (!response.ok) {
@@ -65,11 +66,11 @@ function ReviewProposels() {
                         <p className='job-date'>{Job.postDate}</p>
                         <div className='job-type-div'>
                         <p className='job-type-text'>Job Type:</p>
-                        <p className='job-type'>{Job.jobType}</p> 
+                        <p className='job-type'>{Job.jobType}</p>
                         </div>
                         <div className='job-type-div'>
                         <p className='job-salary-text'>Job salary:</p>
-                        <p className='job-salary'>{Job.jobSalary}</p> 
+                        <p className='job-salary'>{Job.salray}</p>
                         </div>
                         <div className='job-description-div' >
                         <p className='job-description-text'>Job description:</p>
@@ -84,10 +85,10 @@ function ReviewProposels() {
       {proposels && proposels.map((val,key)=>{
         return(
             <div className='user-card'  key={key} >
-            <p className='user-name'>{val.JobSeeker.userName}</p>
-            <p className='user-email'>{val.JobSeeker.email}</p>
+            <p className='user-name'>{val.jobSeeker.userName}</p>
+            <p className='user-email'>{val.jobSeeker.email}</p>
             <div className='buttons-container'>
-            <button className='view-proposel-button'>View proposel</button>
+            <button className='view-proposel-button'>View Proposal</button>
             </div>
             </div>
         )
