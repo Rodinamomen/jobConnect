@@ -89,8 +89,7 @@ function ReviewProposels() {
             <p className='user-name'>{val.jobSeeker.userName}</p>
             <p className='user-email'>{val.jobSeeker.email}</p>
             <div className='buttons-container'>
-                <Link to="/viewProposel:${val.ProposalId}"><button className='view-proposel-button'>View proposel</button></Link>
-            <button className='view-proposel-button'>View proposel</button>
+                <Link to='/viewProposel:${val.ProposalId}'><button className='view-proposel-button'>View proposel</button></Link>
             </div>
             </div>
         )
