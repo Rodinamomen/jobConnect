@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './PostJob.css'
 import { Link } from 'react-router-dom';
+import NavGraph from '../NavGraph/NavGraph';
  function PostJob() {
     const [jobTitle,setJobTitle] = useState('');
     const [jobType,setJobType] = useState("");
@@ -35,6 +36,7 @@ import { Link } from 'react-router-dom';
     }
   return (
     <div className='postJobContaioner' >
+      <NavGraph/>
      <div className='create-job-header'>Create a job</div>
      <div className="job-details-container">
         <div className='job-details-container-card'>

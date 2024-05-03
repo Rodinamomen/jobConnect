@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './JobsList.css'
 import { JobsListData} from './JobsListData'
 import { Link } from 'react-router-dom'
+import NavGraph from '../NavGraph/NavGraph';
 
 function JobList(props) {
   const [allJobs, setAllJobs] = useState(null);
@@ -31,12 +32,13 @@ function JobList(props) {
   };  
   return (
     <div>
+      <NavGraph/>
       <div className='create-job-header'>Jobs list</div>
      <div className='job-list-container' >
         
         </div>
         <div className='job-cards-container'>
-        {allJobs && allJobs.map((val,key)=>{
+        {JobsListData && JobsListData.map((val,key)=>{
         return(
          <div className='job-card' key={key} >
            <p className='job-title'>{val.jobTitle}</p>

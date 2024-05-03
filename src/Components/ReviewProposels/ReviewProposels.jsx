@@ -4,15 +4,16 @@ import { Link, useParams } from 'react-router-dom';
 import { JobsListData } from '../JobsList/JobsListData';
 import { proposelsData } from './proposelsData';
 import './ReviewProposels.css'
+import NavGraph from '../NavGraph/NavGraph';
 function ReviewProposels() {
  const [Job, setJob] = useState(null);
  const [proposels, setProposels] = useState(null);
  const { jobId } = useParams();
     useEffect(() => {
-    //   const job = JobsListData.find(item => item.jobId === jobId);
-    //    setJob(JobsListData.find(item => item.jobId === jobId))
-      fetchData();
-      getProposels()
+     const job = JobsListData.find(item => item.jobId === jobId);
+      setJob(JobsListData.find(item => item.jobId === jobId))
+    //  fetchData();
+   //   getProposels()
     }, [jobId]);
 
     const fetchData = async () => {
@@ -57,6 +58,7 @@ function ReviewProposels() {
     }
   return (
      <div>
+        <NavGraph/>
     <div className='job-details-header'>Job details</div> 
     <div>
     <div className='view-proposels-content'>
@@ -83,11 +85,11 @@ function ReviewProposels() {
       </div>
       <div className='user-cards-container'>
         
-      {proposels && proposels.map((val,key)=>{
+      {proposelsData && proposelsData.map((val,key)=>{
         return(
             <div className='user-card'  key={key} >
-            <p className='user-name'>{val.jobSeeker.userName}</p>
-            <p className='user-email'>{val.jobSeeker.email}</p>
+            <p className='user-name'>{val.userName}</p>
+            <p className='user-email'>{val.email}</p>
             <div className='buttons-container'>
                 <Link to={`/viewProposel/${val.ProposalId}`}><button className='view-proposel-button'>View proposel</button></Link>
             </div>
