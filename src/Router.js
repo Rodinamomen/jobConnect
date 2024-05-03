@@ -30,11 +30,11 @@ export const router = createBrowserRouter([
         element: <ReviewProposels />,
       },
       {
-        path: "/viewProposel:proposalId",
+        path: "/viewProposel/:proposalId",
         element: <ViewProposel/>,
       },
      ],
-     
+
     },
     {
         //Wild route
