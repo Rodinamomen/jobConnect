@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 .job-list-header {
     width: 100vw;
     flex-direction: column;
     align-items: center;
     display: flex;
     justify-content: center; 
-    font-size: 30px;
+    font-size: 50px;
     color: #000000;
     font-family: "Poppins";
     background-color:  #F4F5F7;
@@ -26,8 +27,8 @@
     flex-direction: column;
     margin: 10px;
     border: 1px solid gray;
-    border-radius: 20px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    border-radius: 20px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .job-title {
@@ -68,7 +69,7 @@
     height: 5ch;
     bottom: 10px; 
     width: 30ch;
-    margin-left: 10px;
+    margin-left: 20px;
     color: white; 
     border-color: #338573; 
     font-family:'Poppines', sans-serif ;

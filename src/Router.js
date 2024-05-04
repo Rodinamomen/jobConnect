@@ -7,15 +7,22 @@ import App from "./App";
 import Notfound from "./Components/Error/Notfound";
 import ReviewProposels from "./Components/ReviewProposels/ReviewProposels";
 import ViewProposel from "./Components/ViewProposel/ViewProposel";
+import  Signup from "./Components/SignUp/Signup";
+import Login  from "./Components/Login/Login";
 export const router = createBrowserRouter([
     
     {
       path: "/",
       element: <App/>,
       //Nested routes
-      children:[ {
-        path: "/",
-        element:<PostJob />  ,
+      children:[
+        {
+          path: "/login",
+          element: <Login/>
+        },
+      {
+        path: "/register",
+        element:<Signup/>  ,
       },
       {
         path: "/postJob",

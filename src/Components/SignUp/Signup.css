@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 .signup-container{
     background-color: #EAEBEC;
     height: 100vh;
@@ -29,7 +30,7 @@
     line-height: 1; 
 }
 .register-button{
-    background-color: #6236F5;
+    background-color: #338573;
     font-size: 16px;
     padding: 15px 28px;
     border-radius: 12px;
@@ -43,7 +44,7 @@
     font-weight: lighter;
 }
 .register-button:hover{
-    background-color: rgba(77, 23, 255, 0.623);
+    background-color:    #338573c5;
     color: white;
 }
 .to-login-button{

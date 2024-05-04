@@ -1,17 +1,20 @@
 import React, {useState}from "react";
 import './Signup.css'
-export const Signup = (props) => {
+import { Link } from "react-router-dom";
+ function Signup (props){
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
     const [firstname,setFirstName] = useState('')
     const [secondname,setSecondName] = useState('')
+    const [jobRole,setJobRole]= useState('')
     const submitUser = async() =>
     {
       const userData = {
        email: email,
        password: password,
         firstname: firstname,
-        secondname:secondname
+        secondname:secondname,
+        jobrole:jobRole
        }
 
        const result = await fetch("url", 
@@ -23,7 +26,6 @@ export const Signup = (props) => {
         body: JSON.stringify(userData)
     })
     const resultInbJson= await  result.json
-    console.log(resultInbJson)
     }
     
     return(
@@ -43,9 +45,17 @@ export const Signup = (props) => {
             <input  value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email"  onChange={(e) => setEmail(e.target.value)}></input>
             <label className="password-label"  htmlFor="password">Password</label>
             <input value={password} type="password" placeholder="************" id="password" name="password" onChange={(e) => setPassword(e.target.value)}></input>
+            <select  value={jobRole} onChange={(e)=> setJobRole(e.target.value)}>
+                <option value="">Select</option>
+                <option value="admin">Admin</option>
+                <option value="jobseeker">Jobseeker</option>
+                <option value="employeer">Employeer</option>
+            </select>
             <button className="register-button" type="submit" onClick={submitUser}>Sign up</button>
-        </form><button className="to-login-button"onClick={()=>props.onFormSwitch('login')}>Have an accout? Log in </button>
+        </form>
+        <Link to="/login"> <button className="to-login-button">Have an accout? Log in </button></Link>
         </div>
         </div>
     );
-}
+};
+export default Signup
