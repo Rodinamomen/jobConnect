@@ -14,27 +14,35 @@ import { Link } from "react-router-dom";
         setShowEmployerFields(e.target.value === "employeer");
     };
 
-    const submitUser = async() =>
-    {
-      const userData = {
-       Email: email,
-       Password: password,
-       UserName: userName,
-        Role:jobRole,
-        Company:company,
-        Industry: industry
-       }
-
-
-       const result = await fetch("url", 
-    {
-        method: "POST",
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(userData)
-    })
-    }
+    const submitUser = async () => {
+        const userData = {
+            Email: email,
+            Password: password,
+            UserName: userName,
+            Role: jobRole,
+            Company: company,
+            Industry: industry
+        };
+    
+        try {
+            const response = await fetch("url", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            });
+    
+            if (response.ok) {
+                console.log("User successfully registered!");
+                // You can redirect or perform any action after successful registration
+            } else {
+                console.error("Failed to register user:", response.status);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
     
     return(
         <div className="signup-container" >
@@ -45,9 +53,9 @@ import { Link } from "react-router-dom";
             <span className="register-subheader">Let’s Sign up first for enter into JobConnect Website.</span>
         </div>
         <form className="register-form" /*onSubmit={handleSubmit}*/>
-            <label className='first-name-label'htmlFor="name">First Name</label>
+            <label className='userName-label'htmlFor="name">UserName</label>
             <input value={userName} type="text" placeholder="userName" id="userName" name="userName" onChange={(e) => setUserName(e.target.value)}></input>
-            <label className='second-name-label'htmlFor="Secondname">Second Name</label>
+            <label className='email-label'htmlFor="email">Email</label>
             <input  value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email"  onChange={(e) => setEmail(e.target.value)}></input>
             <label className="password-label"  htmlFor="password">Password</label>
             <input value={password} type="password" placeholder="************" id="password" name="password" onChange={(e) => setPassword(e.target.value)}></input>
