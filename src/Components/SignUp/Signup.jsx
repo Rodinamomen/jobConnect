@@ -50,29 +50,37 @@ import { Link } from "react-router-dom";
             <span className="register-subheader">Let’s Sign up first for enter into JobConnect Website.</span>
         </div>
         <form className="register-form" onSubmit={submitUser}>
-            <label className='userName-label'htmlFor="name">UserName</label>
+            <label className='userName-label'htmlFor="userName">UserName</label>
             <input value={userName} type="text" placeholder="userName" id="userName" name="userName" onChange={(e) => setUserName(e.target.value)}></input>
             <label className='email-label'htmlFor="email">Email</label>
             <input  value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email"  onChange={(e) => setEmail(e.target.value)}></input>
             <label className="password-label"  htmlFor="password">Password</label>
             <input value={password} type="password" placeholder="************" id="password" name="password" onChange={(e) => setPassword(e.target.value)}></input>
+           <div className="menu-div">
+            <label className="select-role-label" >Select Role:</label>
             <select className="job-role-menu"  value={jobRole} onChange={(e)=> {setJobRole(e.target.value); toggleEmployerFields(e);}}>
                 <option value="">Select</option>
                 <option value="jobseeker">Jobseeker</option>
                 <option value="employeer">Employeer</option>
             </select>
+            </div>
             {showEmployerFields && (
                 <>
+            <div className="company-div">
              <label className='company-label'htmlFor="company">Company</label>
             <input value={company} type="text" placeholder="company" id="company" name="company" onChange={(e) => setCompany(e.target.value)}></input>
+            </div>
+            <div className="industry-div"> 
             <label className='industry-label' htmlFor="name">Industry</label>
             <input value={industry} type="text" placeholder="industry" id="industry" name="industry" onChange={(e) => setIndustry(e.target.value)}></input>
+            </div>
                 </>
             )}
             <button className="register-button" type="submit">Sign up</button>
         </form>
 
-        <Link to="/login"> <button className="to-login-button">Have an accout? Log in </button></Link>
+        <Link to="/login"> <button className="to-log
+        in-button">Have an accout? Log in </button></Link>
         </div>
       </div>
     );
