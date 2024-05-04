@@ -86,3 +86,24 @@ margin-left: 16px;
 .company-div{
     margin-top: 20px;
 }
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 25px;
+    margin-left: 30px;
+}
+.to-login-message {
+    font-size: 14px;
+    margin-top: 10px;
+    margin: auto;
+}
+
+.to-login-link {
+    color: #338573;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.to-login-link:hover {
+    color: #338573;
+}

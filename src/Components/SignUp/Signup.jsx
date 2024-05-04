@@ -8,11 +8,26 @@ import { Link } from "react-router-dom";
     const [jobRole,setJobRole]= useState('')
     const [company, setCompany] = useState(null);
     const [industry, setIndustry] = useState(null);
+    const [error, setError] = useState('');
     const [showEmployerFields, setShowEmployerFields] = useState(false);
     const toggleEmployerFields = (e) => {
         setShowEmployerFields(e.target.value === "employeer");
     };
-    const submitUser = async () => {
+    const submitUser = async (e) => {
+        e.preventDefault();
+        if (!email || !password || !userName || !jobRole) {
+            setError("Please fill out all required fields");
+            return;
+        }
+    
+        if (jobRole === "employeer" && (!company || !industry)) {
+            setError("Please fill out all employer fields");
+            return;
+        }
+        if (password.length < 8) {
+            setError("Password must be at least 8 characters long");
+            return;
+        }
     const userData = {
         Email: email,
         Password: password,
@@ -32,13 +47,16 @@ import { Link } from "react-router-dom";
         });
         const data = await response.json();
         if (response.ok) {
-            console.log("User successfully registered!");
+            setError("User successfully registered!");
         } else {
-            console.error("Failed to register user:", response.status);
+            setError("Failed to register user");
         }
     } catch (error) {
-        console.error("Error:", error);
+        setError("Error occurred, please try again later");
     }
+    setTimeout(() => {
+        setError('');
+    }, 5000);
 };
     
     return(
@@ -49,6 +67,7 @@ import { Link } from "react-router-dom";
             <br/>
             <span className="register-subheader">Let’s Sign up first for enter into JobConnect Website.</span>
         </div>
+        {error && <div className="error-message">{error}</div>}
         <form className="register-form" onSubmit={submitUser}>
             <label className='userName-label'htmlFor="userName">UserName</label>
             <input value={userName} type="text" placeholder="userName" id="userName" name="userName" onChange={(e) => setUserName(e.target.value)}></input>
@@ -79,10 +98,10 @@ import { Link } from "react-router-dom";
             <button className="register-button" type="submit">Sign up</button>
         </form>
 
-        <Link to="/login"> <button className="to-log
-        in-button">Have an accout? Log in </button></Link>
+        <span className="to-login-message">Have an account? <Link to="/login" className="to-login-link">Log in</Link></span>
         </div>
       </div>
+      
     );
 };
 export default Signup
