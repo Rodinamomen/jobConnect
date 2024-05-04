@@ -4,18 +4,27 @@ import { Link } from "react-router-dom";
  function Signup (props){
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
-    const [firstname,setFirstName] = useState('')
+    const [userName,setUserName] = useState('')
     const [secondname,setSecondName] = useState('')
     const [jobRole,setJobRole]= useState('')
+    const [company, setCompany] = useState(null);
+    const [industry, setIndustry] = useState(null);
+    const [showEmployerFields, setShowEmployerFields] = useState(false);
+    const toggleEmployerFields = (e) => {
+        setShowEmployerFields(e.target.value === "employeer");
+    };
+
     const submitUser = async() =>
     {
       const userData = {
-       email: email,
-       password: password,
-        firstname: firstname,
-        secondname:secondname,
-        jobrole:jobRole
+       Email: email,
+       Password: password,
+       UserName: userName,
+        Role:jobRole,
+        Company:company,
+        Industry: industry
        }
+
 
        const result = await fetch("url", 
     {
@@ -25,7 +34,6 @@ import { Link } from "react-router-dom";
         },
         body: JSON.stringify(userData)
     })
-    const resultInbJson= await  result.json
     }
     
     return(
@@ -38,19 +46,24 @@ import { Link } from "react-router-dom";
         </div>
         <form className="register-form" /*onSubmit={handleSubmit}*/>
             <label className='first-name-label'htmlFor="name">First Name</label>
-            <input value={firstname} type="text" placeholder="firstName" id="firstName" name="Firstname" onChange={(e) => setFirstName(e.target.value)}></input>
+            <input value={userName} type="text" placeholder="userName" id="userName" name="userName" onChange={(e) => setUserName(e.target.value)}></input>
             <label className='second-name-label'htmlFor="Secondname">Second Name</label>
-            <input value={secondname} type="text" placeholder="secondName" id="secondName" name="secondName" onChange={(e) => setSecondName(e.target.value)}></input>
-            <label className='email-label' htmlFor="email">Email</label>
             <input  value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email"  onChange={(e) => setEmail(e.target.value)}></input>
             <label className="password-label"  htmlFor="password">Password</label>
             <input value={password} type="password" placeholder="************" id="password" name="password" onChange={(e) => setPassword(e.target.value)}></input>
-            <select  value={jobRole} onChange={(e)=> setJobRole(e.target.value)}>
+            <select  value={jobRole} onChange={(e)=> {setJobRole(e.target.value); toggleEmployerFields(e);}}>
                 <option value="">Select</option>
-                <option value="admin">Admin</option>
                 <option value="jobseeker">Jobseeker</option>
                 <option value="employeer">Employeer</option>
             </select>
+            {showEmployerFields && (
+                <>
+                    <label className='company-label'htmlFor="company">Company</label>
+            <input value={company} type="text" placeholder="company" id="company" name="company" onChange={(e) => setCompany(e.target.value)}></input>
+            <label className='industry-label' htmlFor="name">Industry</label>
+            <input value={industry} type="text" placeholder="industry" id="industry" name="industry" onChange={(e) => setIndustry(e.target.value)}></input>
+                </>
+            )}
             <button className="register-button" type="submit" onClick={submitUser}>Sign up</button>
         </form>
         <Link to="/login"> <button className="to-login-button">Have an accout? Log in </button></Link>
