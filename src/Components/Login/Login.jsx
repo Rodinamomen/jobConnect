@@ -12,6 +12,10 @@ function  Login(props) {
                 setError("Please fill out all required fields");
                 return;
             }
+            const userData = {
+                Email: email,
+                Password: password,
+            };
             const token ="your token"
             const baseurl=`/https://jobconnectapi-1.onrender.com/jobs/${jobRole}/login`
             try{
@@ -20,7 +24,8 @@ function  Login(props) {
               method: "POST",
               headers: {
                 'Authorization': `Bearer ${token}`,
-              }
+              },
+              body: JSON.stringify(userData)
               
           }) ;
           if (!response.ok) {
