@@ -17,23 +17,26 @@ import NavGraph from '../NavGraph/NavGraph';
             const jobData = {
              jobTitle: jobTitle,
              jobType: jobType,
-              salery: jobSalery,
-              postDate:formattedDate,
+              salray: jobSalery,
+              postDate:currentDate,
               jobDescription:jobDescription,
-              isActive:0
+              isActive:true
             }
-             const result = await fetch("url", 
+        const url= "http://localhost:5109/employer/jobs/add"
+
+        const result = await fetch(url,
           {
               method: "POST",
               headers: {
-                'Authorization': `Bearer ${token}`,
+                  'Content-Type' : 'application/json',
+                  'Authorization': `Bearer ${token}`
               },
               body: JSON.stringify(jobData)
           })
           const resultInbJson =  await result.json
           console.log(resultInbJson)
           setJobData(jobData)
-          
+
     }
   return (
     <div className='postJobContaioner' >
@@ -66,11 +69,11 @@ import NavGraph from '../NavGraph/NavGraph';
             <label className='job-description-label'>Job description</label>
             <textarea className='job-description-input' value={jobDescription} type='text' onChange={(e)=> setjobDescription(e.target.value)}></textarea>
             </div>
-            <button className='post-job-button' onClick={handleSubmit}>Post a job</button> 
+            <button className='post-job-button' onClick={handleSubmit}>Post a job</button>
         </div>
      </div>
     </div>
-    
+
   )
 }
 export default PostJob

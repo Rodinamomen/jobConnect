@@ -20,7 +20,8 @@ function  Login(props) {
     };
 
     try {
-        const response = await fetch("url", {
+        const url= "http://localhost:5109/login"
+        const response = await fetch(url, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -28,14 +29,14 @@ function  Login(props) {
             body: JSON.stringify(userData)
         });
         const data = await response.json();
-        if (data.ok) {
+        if (data.successful === true) {
             const token = data.token; 
             localStorage.setItem('token', token);
             navigate('/postJob')
             setError("User successfully registered!");
 
         } else {
-            setError("Failed to login user");
+            setError(data.message);
         }
     } catch (error) {
         setError("Error occurred, please try again later");

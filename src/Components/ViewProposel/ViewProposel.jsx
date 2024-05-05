@@ -46,7 +46,7 @@ function ViewProposel() {
         };
         const handleAccept = async()=>{
             try {
-                const baseurl=`https://jobconnectapi-1.onrender.com/jobs/proposals/${proposalId}/accept`
+                const baseurl=`http://localhost:5109/jobs/proposals/${proposalId}/accept`
                 const response = await fetch( baseurl, {
                     method: 'Post',
                     headers: {
@@ -64,7 +64,7 @@ function ViewProposel() {
         }
         const handleReject = async()=>{
             try {
-                const baseurl=`https://jobconnectapi-1.onrender.com/jobs/proposals/${proposalId}/reject`
+                const baseurl=`http://localhost:5109/jobs/proposals/${proposalId}/reject`
                 const response = await fetch( baseurl, {
                     method: 'GET',
                     headers: {

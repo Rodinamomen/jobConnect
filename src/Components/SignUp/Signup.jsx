@@ -41,7 +41,8 @@ import { Link, useNavigate } from "react-router-dom";
     };
 
     try {
-        const response = await fetch("url", {
+        const url= "http://localhost:5109/register"
+        const response = await fetch(url, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
