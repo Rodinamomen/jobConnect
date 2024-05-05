@@ -13,8 +13,6 @@ function  Login(props) {
             setError("Please fill out all required fields");
             return;
         }
-   
-       
     const userData = {
         Email: email,
         Password: password,
@@ -70,7 +68,7 @@ function  Login(props) {
             <button className="login-button" type="submit">Login</button>
             
         </form>
-        <span className="to-register-message">Don't Have an accout? Register <Link to="/register" className="to-register-link">Register</Link></span>
+        <span className="to-register-message">Don't Have an accout?<Link to="/register" className="to-register-link">Register</Link></span>
 
         </div>
         </div>

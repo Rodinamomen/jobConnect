@@ -12,24 +12,21 @@ function ViewProposel() {
           fetchData();
         }, [proposalId]);
         
-      const downloadFile = () => {
-        fetch(attachmentPath)
-            .then((response) => response.blob())
-            .then((blob) => {
-                const url = window.URL.createObjectURL(new Blob([blob]));
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', 'filename'); // Set desired file name here
-                document.body.appendChild(link);
-                link.click();
-                link.parentNode.removeChild(link);
-            })
-            .catch((error) => console.error('Error downloading file:', error));
-    };
- /*   const handleDoownloadClick=()=>{
-        setAttachmentPath(proposal.JobSeeker.attachmentPath)
-        downloadFile
-    };*/
+
+      
+
+        
+        const downloadFile = () => {
+            setAttachmentPath(proposal.JobSeeker.attachmentPath)
+            const link = document.createElement('a');
+            link.href = attachmentPath; 
+            link.setAttribute('download', 'filename'); 
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+
      const fetchData = async () => {
           console.log('Fetching data...');
         
@@ -86,7 +83,7 @@ function ViewProposel() {
 
 
   return (
-    <div>
+   /*{} <div>
         <NavGraph/>
     <div className='job-list-container'>
       <div className='job-details-header'>Proposel</div> 
@@ -104,14 +101,14 @@ function ViewProposel() {
         <div className='cover-letter-div'>
             <p className='proposal-cover-letter-text'>Cover letter:</p>
             <p className='proposal-cover-letter'>While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.While cover letters are not always required, many hiring managers still rely on them to gauge an applicant's skills, experience and background. The key to writing an effective cover letter is to clearly show how your professional experience fits the needs of the open role and the culture of the hiring company.</p>
-         <button className='download-resume-button' /*onClick={handleDoownloadClick}*/>Download resume</button>  
+         <button className='download-resume-button' /*onClick={handleDoownloadClick}/>Download resume</button>  
         </div>
   
         <button className='accept-proposal-button' onClick={handleAccept}>Accept</button>
         <button className='reject-proposal-button' onClick={handleReject}>reject</button>
       </div>
-    </div>
-    /*{
+    </div>}*/
+    
          <div>
         <NavGraph/>
     <div className='job-list-container'>
@@ -130,15 +127,14 @@ function ViewProposel() {
         <div className='cover-letter-div'>
             <p className='proposal-cover-letter-text'>Cover letter:</p>
             <p className='proposal-cover-letter'>{proposal.CoverLetter}</p>
-         <button className='download-resume-button' onClick={handleDoownloadClick}>Download resume</button>  
+         <button className='download-resume-button' onClick={downloadFile}>Download resume</button>  
         </div>
   
         <button className='accept-proposal-button' onClick={handleAccept}>Accept</button>
         <button className='reject' onClick={handleReject}>reject</button>
       </div>
     </div>
-
-    }*/
+    
 
   )
 }
