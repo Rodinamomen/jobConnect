@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import './Login.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function  Login(props) {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
     const [jobRole,setJobRole]= useState('')
     const [error, setError] = useState('');
+   const navigate =useNavigate()
   
     const submitUser = async (e) => {
         e.preventDefault();
@@ -30,6 +31,7 @@ function  Login(props) {
         if (data.ok) {
             const token = data.token; 
             localStorage.setItem('token', token);
+            navigate('/postJob')
             setError("User successfully registered!");
 
         } else {

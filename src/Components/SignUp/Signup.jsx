@@ -1,6 +1,6 @@
 import React, {useState}from "react";
 import './Signup.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
  function Signup (props){
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
@@ -11,9 +11,9 @@ import { Link } from "react-router-dom";
     const [error, setError] = useState('');
     const [showEmployerFields, setShowEmployerFields] = useState(false);
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const navigate =useNavigate()
     const toggleEmployerFields = (e) => {
-
-        setShowEmployerFields(e.target.value === "employeer");
+        setShowEmployerFields(e.target.value === "employer");
     };
     const submitUser = async (e) => {
         e.preventDefault();
@@ -26,7 +26,7 @@ import { Link } from "react-router-dom";
             return
         }
     
-        if (jobRole === "employeer" && (!company || !industry)) {
+        if (jobRole === "employer" && (!company || !industry)) {
             setError("Please fill out all employer fields");
             return;
         }
@@ -52,6 +52,7 @@ import { Link } from "react-router-dom";
         if (data.ok) {
             const token = data.token; 
             localStorage.setItem('token', token);
+            navigate('/postJob')
             setError("User successfully registered!");
 
         } else {
