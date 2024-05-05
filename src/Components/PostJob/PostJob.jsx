@@ -12,6 +12,7 @@ import NavGraph from '../NavGraph/NavGraph';
     const [jobData, setJobData] = useState(null);
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString()
+    
     const handleSubmit= async ()=> {
             const jobData = {
              jobTitle: jobTitle,
@@ -25,7 +26,7 @@ import NavGraph from '../NavGraph/NavGraph';
           {
               method: "POST",
               headers: {
-                  'Content-Type':'application/json'
+                'Authorization': `Bearer ${token}`,
               },
               body: JSON.stringify(jobData)
           })
