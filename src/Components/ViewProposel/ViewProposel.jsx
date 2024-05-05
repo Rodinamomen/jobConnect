@@ -28,7 +28,7 @@ function ViewProposel() {
           console.log('Fetching data...');
         
             try {
-                const baseurl='https://jobconnectapi-1.onrender.com/jobs/proposals/${proposalId}'
+                const baseurl=`https://jobconnectapi-1.onrender.com/jobs/proposals/${proposalId}`
                 const response = await fetch( baseurl, {
                     method: 'GET',
                     headers: {
