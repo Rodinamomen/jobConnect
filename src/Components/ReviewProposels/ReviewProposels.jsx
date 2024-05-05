@@ -9,6 +9,7 @@ function ReviewProposels() {
  const [Job, setJob] = useState(null);
  const [proposels, setProposels] = useState(null);
  const { jobId } = useParams();
+ const token = localStorage.getItem('token');
     useEffect(() => {
   const job = JobsListData.find(item => item.jobId === jobId);
       setJob(JobsListData.find(item => item.jobId === jobId))
@@ -19,7 +20,6 @@ function ReviewProposels() {
     const fetchData = async () => {
       console.log('Fetching data...');
         const baseurl=`http://localhost:5109/employer/jobs/${jobId}`
-        const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0Nzk4ODk5LCJpc3MiOiJqb2JDb25uZWN0In0.NjcP27N8tEWW6KzE2t7FMlPWCjM6LWTwTVPEBSd_OK8`
         try {
             const response = await fetch( baseurl, {
                 method: 'GET',

@@ -6,6 +6,7 @@ import NavGraph from '../NavGraph/NavGraph';
 
 function JobList(props) {
   const [allJobs, setAllJobs] = useState(null);
+  const token = localStorage.getItem('token');
   useEffect(() => {
       fetchData();
   }, []);
@@ -13,7 +14,6 @@ function JobList(props) {
   const fetchData = async () => {
     console.log('Fetching data...');
       try {
-          const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0Nzk4ODk5LCJpc3MiOiJqb2JDb25uZWN0In0.NjcP27N8tEWW6KzE2t7FMlPWCjM6LWTwTVPEBSd_OK8`
           const response = await fetch('http://localhost:5109/employer/jobs', {
               method: 'GET',
               headers: {
