@@ -12,7 +12,7 @@ import NavGraph from '../NavGraph/NavGraph';
     const [jobData, setJobData] = useState(null);
     const currentDate = new Date();
     const formattedDate = currentDate.toLocaleDateString()
-    
+    const token = localStorage.getItem('token');
     const handleSubmit= async ()=> {
             const jobData = {
              jobTitle: jobTitle,
