@@ -38,7 +38,7 @@ function JobList(props) {
         
         </div>
         <div className='job-cards-container'>
-        {allJobs && allJobs.map((val,key)=>{
+        {JobsListData && JobsListData.map((val,key)=>{
         return(
          <div className='job-card' key={key} >
            <p className='job-title'>{val.jobTitle}</p>

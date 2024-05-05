@@ -10,16 +10,16 @@ function ReviewProposels() {
  const [proposels, setProposels] = useState(null);
  const { jobId } = useParams();
     useEffect(() => {
-  //   const job = JobsListData.find(item => item.jobId === jobId);
-   //   setJob(JobsListData.find(item => item.jobId === jobId))
-     fetchData();
-      getProposels()
+  const job = JobsListData.find(item => item.jobId === jobId);
+      setJob(JobsListData.find(item => item.jobId === jobId))
+   //  fetchData();
+   //   getProposels()
     }, [jobId]);
 
     const fetchData = async () => {
       console.log('Fetching data...');
         const baseurl=`http://localhost:5109/employer/jobs/${jobId}`
-        const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0OTExMjY2LCJpc3MiOiJqb2JDb25uZWN0In0.frn0lFCd5DwxsT8sDrhTPjVDRpPMrrpZrJqiwN4rIkQ`
+        const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0Nzk4ODk5LCJpc3MiOiJqb2JDb25uZWN0In0.NjcP27N8tEWW6KzE2t7FMlPWCjM6LWTwTVPEBSd_OK8`
         try {
             const response = await fetch( baseurl, {
                 method: 'GET',
@@ -40,7 +40,7 @@ function ReviewProposels() {
 
         try {
             const baseurl=`http://localhost:5109/jobs/${jobId}/proposals`
-            const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0OTExMjY2LCJpc3MiOiJqb2JDb25uZWN0In0.frn0lFCd5DwxsT8sDrhTPjVDRpPMrrpZrJqiwN4rIkQ`
+            const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjIzZjljNzJkLTIyYTQtNDQzNi04MDdmLWJkODJkMGFlMWY3NSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkVtcGxveWVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZ2l2ZW5uYW1lIjoiRW1wbG95ZXIyIiwiZXhwIjoxNzE0Nzk4ODk5LCJpc3MiOiJqb2JDb25uZWN0In0.NjcP27N8tEWW6KzE2t7FMlPWCjM6LWTwTVPEBSd_OK8`
             const response = await fetch( baseurl, {
                 method: 'GET',
                 headers: {
@@ -85,13 +85,13 @@ function ReviewProposels() {
       </div>
       <div className='user-cards-container'>
         
-      {proposels && proposels.map((val,key)=>{
+      {proposelsData && proposelsData.map((val,key)=>{
         return(
             <div className='user-card'  key={key} >
-            <p className='user-name'>{val.jobSeeker.userName}</p>
-            <p className='user-email'>{val.jobSeeker.email}</p>
+            <p className='user-name'>{val.userName}</p>
+            <p className='user-email'>{val.email}</p>
             <div className='buttons-container'>
-                <Link to={`/viewProposel/${val.proposalId}`}><button className='view-proposel-button'>View proposel</button></Link>
+                <Link to={`/viewProposel/${val.ProposalId}`}><button className='view-proposel-button'>View proposel</button></Link>
             </div>
             </div>
         )

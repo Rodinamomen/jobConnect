@@ -47,12 +47,12 @@ import NavGraph from '../NavGraph/NavGraph';
             </div>
           <div className='job-type-div'>
                 <label className='job-type-label'>Job Type</label>
-                <select id="job-type-input" value={jobType} onChange={(e)=> setJobType(e.target.value)}>
-                <option value="">Select</option>
-                <option value="contract">Contract</option>
-                <option value="fulltime">Full-time</option>
-                <option value="parttime">Part-time</option>
-            </select>
+                <select className="job-role-menu" value={jobType} onChange={(e) => setJobType(e.target.value)}>
+                                <option value="">Select</option>
+                                <option value="contract">Contract</option>
+                                <option value="fulltime">Full-time</option>
+                                <option value="parttime">Part-time</option>
+                            </select>
             </div>
             </div>
             <div className='job-salery-date-container'>
