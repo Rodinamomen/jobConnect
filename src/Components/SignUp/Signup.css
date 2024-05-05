@@ -12,7 +12,7 @@
 }
 .register-form-container{
     background-color: white;
-    height: 90ch;
+    height: max-content;
     width: 70ch;
     display: flex;
     flex-direction: column;
@@ -58,4 +58,52 @@
     margin-right: auto;
     display: flex;
     justify-content: center;
+}
+.job-role-menu {
+    width: 150px; /* Set the width of the menu */
+    padding: 2px; /* Add padding */
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Add border radius */
+    background-color: #fff; /* Set background color */
+    margin-left: 20px;
+    margin-top: 2px;
+}
+.job-role-menu option {
+    font-size: 16px; /* Set the font size */
+}
+.menu-div{
+margin-top: 20px;
+margin-left: 16px;
+}
+.select-role-label{
+    margin-left: 50px;
+    font-size: 18px;
+}
+.userName-label,.email-label,.password-label,.select-role-labe,.company-label,.industry-label{
+    font-size: 18px;
+}
+.company-div{
+    margin-top: 20px;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 25px;
+    margin-left: 30px;
+}
+.to-login-message {
+    font-size: 14px;
+    margin-top: 10px;
+    margin: auto;
+}
+
+.to-login-link {
+    color: #338573;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.to-login-link:hover {
+    color: #338573;
 }
