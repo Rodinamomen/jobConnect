@@ -7,7 +7,7 @@ function  Login(props) {
     const [jobRole,setJobRole]= useState('')
     const [error, setError] = useState('');
   
-        const handleSubmit= async ()=> {
+        const handleSubmit = async ()=> {
             if (!email || !password) {
                 setError("Please fill out all required fields");
                 return;
@@ -27,10 +27,8 @@ function  Login(props) {
               },
               body: JSON.stringify(userData)
               
+              
           }) ;
-          if (!response.ok) {
-            setError('Network response was not ok');
-        }
         } catch(error){
             setError("Error occurred, please try again later");
         }     
@@ -43,6 +41,7 @@ function  Login(props) {
             <br/>
             <span className="enter-email-and-password">Please enter your email and pssword</span>
         </div>
+        {error && <div className="error-message">{error}</div>}
         <form className="login-form" onSubmit={handleSubmit}>
             <label className='email-label'htmlFor="email">Email</label>
             <input class="email-input"value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email" onChange={(e) => setEmail(e.target.value)}></input>
@@ -57,7 +56,6 @@ function  Login(props) {
                 <option value="admin">Admin</option>
             </select>
             </div>
-          
             <button className="login-button" type="submit">Login</button>
             
         </form>
