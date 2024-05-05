@@ -28,7 +28,8 @@ function  Login(props) {
         });
         const data = await response.json();
         if (data.ok) {
-
+            const token = data.token; 
+            localStorage.setItem('token', token);
             setError("User successfully registered!");
 
         } else {
