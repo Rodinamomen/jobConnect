@@ -7,42 +7,53 @@ function  Login(props) {
     const [jobRole,setJobRole]= useState('')
     const [error, setError] = useState('');
   
-        const handleSubmit = async ()=> {
-            if (!email || !password) {
-                setError("Please fill out all required fields");
-                return;
-            }
-            const userData = {
-                Email: email,
-                Password: password,
-            };
-            const token ="your token"
-            const baseurl=`/https://jobconnectapi-1.onrender.com/jobs/${jobRole}/login`
-            try{
-                const result = await fetch( baseurl, 
-          {
-              method: "POST",
-              headers: {
-                'Authorization': `Bearer ${token}`,
-              },
-              body: JSON.stringify(userData)
-              
-              
-          }) ;
-        } catch(error){
-            setError("Error occurred, please try again later");
-        }     
+    const submitUser = async (e) => {
+        e.preventDefault();
+        if (!email || !password) {
+            setError("Please fill out all required fields");
+            return;
+        }
+   
+       
+    const userData = {
+        Email: email,
+        Password: password,
+    };
+
+    try {
+        const response = await fetch("url", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
+        const data = await response.json();
+        if (data.ok) {
+
+            setError("User successfully registered!");
+
+        } else {
+            setError("Failed to login user");
+        }
+    } catch (error) {
+        setError("Error occurred, please try again later");
     }
+    setTimeout(() => {
+        setError('');
+    }, 2000);
+};
+      
     return(
        <div className="login-container" >
         <div className="login-form-container">
         <div className="welcome-container">
             <h1 className="welcome-header">Welcome Back</h1>
             <br/>
-            <span className="enter-email-and-password">Please enter your email and pssword</span>
+            <span className="enter-email-and-password">Please enter your email and password</span>
         </div>
         {error && <div className="error-message">{error}</div>}
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={submitUser}>
             <label className='email-label'htmlFor="email">Email</label>
             <input class="email-input"value={email} type="email" placeholder="youremail@gmail.com" id="email" name="email" onChange={(e) => setEmail(e.target.value)}></input>
             <label className="password-label" htmlFor="password">Password</label>
