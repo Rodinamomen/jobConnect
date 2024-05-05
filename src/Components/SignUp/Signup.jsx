@@ -85,7 +85,7 @@ import { Link } from "react-router-dom";
             <select className="job-role-menu"  value={jobRole} onChange={(e)=> {setJobRole(e.target.value); toggleEmployerFields(e);}}>
                 <option value="">Select</option>
                 <option value="jobseeker">Jobseeker</option>
-                <option value="employeer">Employeer</option>
+                <option value="employer">Employer</option>
             </select>
             </div>
             {showEmployerFields && (
