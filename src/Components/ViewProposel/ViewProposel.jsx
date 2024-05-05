@@ -26,11 +26,11 @@ function ViewProposel() {
                 responseType: 'blob'
             });
             const blob = response.data;
-            const filename = 'proposal12_cv.pdf'; // Set a custom filename
-            saveAs(blob, filename); // Use file-saver library (https://www.npmjs.com/package/file-saver)
+            console.log(response)
+            const filename = proposal.jobSeeker.userName.concat("_Resume.pdf"); // Set a custom filename
+            saveAs(blob, filename);
         } catch (error) {
             console.error('Download error:', error);
-            // Handle errors gracefully
         }
     };
 
