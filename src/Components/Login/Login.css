@@ -119,3 +119,18 @@ input{
     display: flex;
     justify-content: center;
 }
+.to-register-message {
+    font-size: 14px;
+    margin-top: 10px;
+    margin: auto;
+}
+
+.to-register-link {
+    color: #338573;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.to-register-link:hover {
+    color: #338573;
+}

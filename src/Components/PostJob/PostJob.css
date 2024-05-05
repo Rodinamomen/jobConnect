@@ -74,15 +74,6 @@ justify-content: center;
     margin-left: 6ch;
     margin-right: 7ch;
 }
-.job-type-input{
-    background-color: white;
-    font-size: 14px;
-    padding: 12px 28px;
-    border-radius: 12px;
-    border: 2px solid #EAEBEC;
-    margin-left: 6ch;
-    margin-right: 7ch;
-}
 .job-title-label,.job-description-label,.job-type-label,.job-salery-label{
     color: black;
     text-align: left;
@@ -113,6 +104,24 @@ justify-content: center;
 .job-description-input:focus{
     border-color: #338573; 
     outline: none; 
+}
+.job-type-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-role-menu {
+    width: 100%; /* Set the width of the menu */
+    padding: 6px; /* Add padding */
+    font-size: 16px; /* Set the font size */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Add border radius */
+    background-color: #fff; /* Set background color */
+    margin-top: 8px;
+}
+
+.job-role-menu option {
+    font-size: 16px; /* Set the font size */
 }
 
 

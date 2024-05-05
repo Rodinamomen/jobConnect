@@ -10,7 +10,9 @@ import { Link } from "react-router-dom";
     const [industry, setIndustry] = useState(null);
     const [error, setError] = useState('');
     const [showEmployerFields, setShowEmployerFields] = useState(false);
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     const toggleEmployerFields = (e) => {
+
         setShowEmployerFields(e.target.value === "employeer");
     };
     const submitUser = async (e) => {
@@ -19,15 +21,16 @@ import { Link } from "react-router-dom";
             setError("Please fill out all required fields");
             return;
         }
+        if (!regex.test(password)) {
+            setError('Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one digit, and one special character.');
+            return
+        }
     
         if (jobRole === "employeer" && (!company || !industry)) {
             setError("Please fill out all employer fields");
             return;
         }
-        if (password.length < 8) {
-            setError("Password must be at least 8 characters long");
-            return;
-        }
+       
     const userData = {
         Email: email,
         Password: password,
@@ -46,8 +49,10 @@ import { Link } from "react-router-dom";
             body: JSON.stringify(userData)
         });
         const data = await response.json();
-        if (response.ok) {
+        if (data.ok) {
+
             setError("User successfully registered!");
+
         } else {
             setError("Failed to register user");
         }
@@ -56,7 +61,7 @@ import { Link } from "react-router-dom";
     }
     setTimeout(() => {
         setError('');
-    }, 5000);
+    }, 2000);
 };
     
     return(

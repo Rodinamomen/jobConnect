@@ -10,10 +10,10 @@ function ReviewProposels() {
  const [proposels, setProposels] = useState(null);
  const { jobId } = useParams();
     useEffect(() => {
-  //   const job = JobsListData.find(item => item.jobId === jobId);
-   //   setJob(JobsListData.find(item => item.jobId === jobId))
-     fetchData();
-      getProposels()
+  const job = JobsListData.find(item => item.jobId === jobId);
+      setJob(JobsListData.find(item => item.jobId === jobId))
+   //  fetchData();
+   //   getProposels()
     }, [jobId]);
 
     const fetchData = async () => {
@@ -85,11 +85,11 @@ function ReviewProposels() {
       </div>
       <div className='user-cards-container'>
         
-      {proposels && proposels.map((val,key)=>{
+      {proposelsData && proposelsData.map((val,key)=>{
         return(
             <div className='user-card'  key={key} >
-            <p className='user-name'>{val.JobSeeker.userName}</p>
-            <p className='user-email'>{val.JobSeeker.email}</p>
+            <p className='user-name'>{val.userName}</p>
+            <p className='user-email'>{val.email}</p>
             <div className='buttons-container'>
                 <Link to={`/viewProposel/${val.ProposalId}`}><button className='view-proposel-button'>View proposel</button></Link>
             </div>
