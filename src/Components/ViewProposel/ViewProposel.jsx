@@ -11,16 +11,12 @@ function ViewProposel() {
     useEffect(() => {
           fetchData();
         }, [proposalId]);
-        
-
-      
-
-        
+  
         const downloadFile = () => {
             setAttachmentPath(proposal.JobSeeker.attachmentPath)
             const link = document.createElement('a');
             link.href = attachmentPath; 
-            link.setAttribute('download', 'filename'); 
+            link.setAttribute('download', 'resume'); 
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
